@@ -1,0 +1,52 @@
+{
+  "name": "raah-disaster-intelligence",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RAAH — AI disaster intelligence for Pakistan: explainable risk, what-if response simulation, evacuation routing and resource coordination (public demonstration).",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "data:build": "node scripts/build-geodata.mjs",
+    "verify": "npm run lint && npm run typecheck && npm run test && npm run build"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "dependencies": {
+    "d3-geo": "3.1.1",
+    "d3-selection": "3.0.0",
+    "d3-zoom": "3.0.0",
+    "lucide-react": "0.577.0",
+    "next": "15.5.28",
+    "react": "19.2.9",
+    "react-dom": "19.2.9",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "@tailwindcss/postcss": "4.1.18",
+    "@types/d3-geo": "3.1.1",
+    "@types/d3-selection": "3.0.11",
+    "@types/d3-zoom": "3.0.8",
+    "@types/node": "22.19.1",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.39.5",
+    "eslint-config-next": "15.5.28",
+    "mapshaper": "0.7.91",
+    "tailwindcss": "4.1.18",
+    "typescript": "5.9.3",
+    "vitest": "3.2.7"
+  },
+  "overrides": {
+    "next": {
+      "postcss": "8.5.31"
+    }
+  }
+}

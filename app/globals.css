@@ -1,0 +1,196 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------
+   RAAH design tokens. Colours carry fixed meaning:
+   accent (teal/cyan) = interactive & information
+   caution (amber)    = warning / assumption
+   critical (red)     = critical conditions
+   ok (green)         = confirmed operational success / live data
+   sim (violet)       = simulation
+   ------------------------------------------------------------------ */
+:root {
+  --bg: #060b16;
+  --bg-2: #0a1222;
+  --surface: #0d1628;
+  --surface-2: #121e34;
+  --surface-3: #18263f;
+  --border: #1f2c45;
+  --border-strong: #2b3b5a;
+  --text: #e7eef8;
+  --text-2: #b4c2d8;
+  --muted: #8091ab;
+  --accent: #2dd4bf;
+  --accent-2: #22d3ee;
+  --accent-ink: #042f2e;
+  --caution: #f5a524;
+  --critical: #f04444;
+  --ok: #22c55e;
+  --info: #60a5fa;
+  --sim: #a78bfa;
+  --band-low: #7c8ba3;
+  --band-moderate: #e8b923;
+  --band-high: #f97316;
+  --band-critical: #ef4444;
+  --map-land: #0f1d33;
+  --map-land-2: #132542;
+  --map-neighbour: #0b1424;
+  --map-border: #2b4a72;
+  --map-river: #38bdf8;
+  --map-road: #3d4f6e;
+  --map-road-major: #64748b;
+  --map-water-hazard: rgba(56, 189, 248, 0.28);
+  --shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 8px 24px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --bg: #f3f6fb;
+  --bg-2: #e9eef6;
+  --surface: #ffffff;
+  --surface-2: #f5f8fc;
+  --surface-3: #eaf0f8;
+  --border: #d6deea;
+  --border-strong: #c0ccdd;
+  --text: #0b1628;
+  --text-2: #2c3b55;
+  --muted: #5b6b85;
+  --accent: #0d9488;
+  --accent-2: #0891b2;
+  --accent-ink: #ffffff;
+  --caution: #b45309;
+  --critical: #dc2626;
+  --ok: #15803d;
+  --info: #2563eb;
+  --sim: #7c3aed;
+  --band-low: #64748b;
+  --band-moderate: #ca8a04;
+  --band-high: #ea580c;
+  --band-critical: #dc2626;
+  --map-land: #e3eaf4;
+  --map-land-2: #d7e1ee;
+  --map-neighbour: #f1f4f9;
+  --map-border: #8aa2c4;
+  --map-river: #0284c7;
+  --map-road: #b7c3d4;
+  --map-road-major: #8193ad;
+  --map-water-hazard: rgba(2, 132, 199, 0.22);
+  --shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 6px 18px rgba(15, 23, 42, 0.06);
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-ink: var(--text);
+  --color-ink-2: var(--text-2);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-ink: var(--accent-ink);
+  --color-caution: var(--caution);
+  --color-critical: var(--critical);
+  --color-ok: var(--ok);
+  --color-info: var(--info);
+  --color-sim: var(--sim);
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+  --font-urdu: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Noto Naskh Arabic', 'Segoe UI', Tahoma, sans-serif;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.urdu {
+  font-family: var(--font-urdu);
+  line-height: 2;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--border) 45%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--border) 45%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+input[type='range'] {
+  accent-color: var(--accent);
+}
+
+.map-svg {
+  touch-action: none;
+  user-select: none;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.pulse-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.fade-up {
+  animation: fade-up 0.35s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .no-print { display: none !important; }
+}
